@@ -151,7 +151,7 @@ class Admin_Controller extends Authenticated_Controller {
 		$this->limit = 25;
 		
 		// Basic setup
-		Template::set_theme('admin');
+		Template::set_theme('lima');
 		Assets::add_css(array('ui.css', 'notifications.css', 'buttons.css'));
 	}
 	
