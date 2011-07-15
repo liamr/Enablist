@@ -110,6 +110,67 @@ function module_list($exclude_core=false)
 	return $map;
 }
 
+/*
+	Function: module_config()
+
+	Returns config for a module.
+	
+	Parameters:
+	$module		- The name of module to look in.
+	
+	Return: 
+		array
+ */
+
+function module_config($module) {
+    
+    $config_param = array();
+    
+    $config_file = FCPATH .'bonfire/modules/' . $module . '/config/config.php';
+    
+    if (file_exists($config_file)) {
+
+		include($config_file);
+
+		/* Check for the optional module_config and serialize if exists*/
+		if (isset($config['module_config'])) {
+
+			$config_param =$config;
+
+		}
+		
+	} else {
+	    $config_param = array($config_file);
+	}
+
+	return $config_param;
+
+}
+
+function module_widgets() {
+    
+    $config_param =array();
+    
+    foreach (module_list() as $module) {
+        
+        $c = module_config($module);
+
+		if (isset($c['module_config'])) {
+
+			$config_param[] = modules::run($c['module_config']['dashboard_widget']);
+
+		} else {
+		    
+		    //$config_param[] = $c;
+		    
+		}
+
+	}
+
+	return $config_param;
+
+}
+
 //--------------------------------------------------------------------
 
 /*

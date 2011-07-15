@@ -18,6 +18,11 @@ class Content extends Admin_Controller {
 	public function index() 
 	{	
 		Template::set_view('admin/content/index');
+		
+		$view = modules::run('site/content');
+		
+		Template::set('widgets', $view);
+		
 		Template::render();
 	}
 	

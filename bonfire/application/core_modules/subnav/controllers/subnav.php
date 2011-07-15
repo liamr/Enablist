@@ -45,6 +45,9 @@ class Subnav extends Base_Controller {
 					$class = '';
 				}
 				
+				//Check to see if there are any submenu items specified in module config
+				
+				
 				// Build our list item.
 				$list .= '<li><a href="'. site_url('admin/'. $type .'/'. $module) .'" '. $class;
 				// Icon
