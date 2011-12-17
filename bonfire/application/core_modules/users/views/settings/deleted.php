@@ -22,7 +22,7 @@
 				<td><?php echo $user->email ?></td>
 				<td><?php echo $user->username ? $user->username : '--' ?></td>
 				<td class="text-right">
-					<?php echo anchor('admin/settings/users/purge/'. $user->id, 'Purge', 'class="ajaxify"') ?> | 
+					<?php echo anchor('admin/settings/users/purge/'. $user->id, 'Purge', 'class="ajaxify"') ?> |
 					<?php echo anchor('admin/settings/users/restore/'. $user->id, 'Restore', 'class="ajaxify"') ?>
 				</td>
 			</tr>
@@ -34,11 +34,11 @@
 
 	<div class="box delete rounded">
 		<a class="button delete ajaxify" href="<?php echo site_url('admin/settings/users/create'); ?>">Purge Deleted Accounts</a>
-	
+
 		<h3>Purge Deleted Accounts</h3>
-		
+
 		<p>Purging deleted accounts is a permanent action. There is no going back, so please make sure.</p>
-	</div>	
+	</div>
 
 <?php else : ?>
 <div class="notification information">

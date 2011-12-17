@@ -109,11 +109,11 @@ $('input[placeholder], textarea[placeholder]').placeholder();
 //--------------------------------------------------------------------
 $('.list-view .list-item').click(function(){
 	var id = $(this).attr('data-id');
-	
+
 	// Set current class
 	$(this).siblings().removeClass('current');
 	$(this).addClass('current');
-	
+
 	$.publish('list-view/list-item/click', [id]);
 });
 
@@ -122,23 +122,23 @@ $('.list-view .list-item').click(function(){
 //--------------------------------------------------------------------
 $('.panel-header a.list-search').click(function(e){
 	e.preventDefault();
-	
+
 	$('#search-form').slideToggle(300).children('input').focus();
 });
 
 // Do the actual search/filtering
 $('#search-form input.list-search').keyup(function(e){
 	e.preventDefault();
-	
+
 	var term = $(this).val().toLowerCase();
-	
+
 	$('.list-item').css('display', 'block');
- 
+
 	$('.list-item').each(
 		function(intIndex)
 		{
 			var field = $(this).children('p').text().toLowerCase();
-			
+
 			if (field.indexOf(term) == -1)
 			{
 				$(this).css('display', 'none');
@@ -152,7 +152,7 @@ $('#search-form input.list-search').keyup(function(e){
 //  !MISC EFFECTS
 //--------------------------------------------------------------------
 
-/* 
+/*
 	3 second fader
 */
 $('.fade-me').delay(3000).fadeOut(500);

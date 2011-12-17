@@ -69,7 +69,7 @@ $route['admin/settings/(:any)/(:any)']		= "$1/settings/$2";
 $route['admin/settings/(:any)']				= "$1/settings/index";
 
 // Admin:developer
-$route['admin/developer/php_info']				= "admin/developer/php_info"; 
+$route['admin/developer/php_info']				= "admin/developer/php_info";
 $route['admin/developer/(:any)/(:any)/(:any)']		= "$1/developer/$2/$3";
 $route['admin/developer/(:any)/(:any)'] = "$1/developer/$2";
 $route['admin/developer/(:any)']		= "$1/developer/index";

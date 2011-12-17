@@ -242,7 +242,7 @@ if ( ! function_exists('_get_smiley_array'))
 		{
 			include(APPPATH.'config/smileys'.EXT);
 		}
-		
+
 		if ( ! isset($smileys) OR ! is_array($smileys))
 		{
 			return FALSE;

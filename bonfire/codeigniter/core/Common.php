@@ -214,13 +214,13 @@
 		if ( ! file_exists($file_path))
 		{
 			$file_path = APPPATH.'config/config'.EXT;
-			
+
 			if ( ! file_exists($file_path))
 			{
 				exit('The configuration file does not exist.');
 			}
 		}
-	
+
 		require($file_path);
 
 		// Does the $config array exist in the file?

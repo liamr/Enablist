@@ -4,29 +4,29 @@ class Content extends Admin_Controller {
 
 	//--------------------------------------------------------------------
 
-	public function __construct() 
+	public function __construct()
 	{
 		parent::__construct();
-		
+
 		Template::set('toolbar_title', 'Content');
-		
+
 		$this->auth->restrict('Site.Content.View');
 	}
-	
-	//--------------------------------------------------------------------	
 
-	public function index() 
-	{	
+	//--------------------------------------------------------------------
+
+	public function index()
+	{
 		Template::set_view('admin/content/index');
-		
+
 		$view = modules::run('site/content');
-		
+
 		Template::set('widgets', $view);
-		
+
 		Template::render();
 	}
-	
+
 	//--------------------------------------------------------------------
-	
+
 
 }

@@ -5,15 +5,15 @@
 <?php endif; ?>
 
 <?php echo form_open('admin/settings/emailer', 'class="constrained"'); ?>
-	
+
 	<br/>
-	
+
 	<div>
 		<label>System Email Address</label>
 		<input type="email" name="sender_email" class="medium" value="<?php echo isset($sender_email) ? $sender_email : set_value('sender_email') ?>" />
 		<p class="small indent">The email that all system-generated emails are sent from.</p>
 	</div>
-	
+
 	<div>
 		<label>Email Server</label>
 		<select name="protocol" id="server_type">
@@ -22,7 +22,7 @@
 			<option <?php echo isset($protocol) && $protocol == 'smtp' ? 'selected="selected"' : ''; ?>>SMTP</option>
 		</select>
 	</div>
-	
+
 <fieldset>
 	<legend>Email Settings</legend>
 	<!-- PHP Mail -->
@@ -35,7 +35,7 @@
 		<label>Sendmail location</label>
 		<input type="text" name="mailpath" class="medium" value="<?php echo isset($mailpath) ? $mailpath : '/usr/sbin/sendmail' ?>" />
 	</div>
-	
+
 	<!-- SMTP -->
 	<div id="smtp">
 		<label>SMTP Server Address</label>
@@ -67,7 +67,7 @@ head.ready(function(){
 	$('#server_type').change(function(){
 		// First, hide everything
 		$('#mail, #sendmail, #smtp').css('display', 'none');
-		
+
 		switch ($(this).val())
 		{
 			case 'mail':
@@ -81,7 +81,7 @@ head.ready(function(){
 				break;
 		}
 	});
-	
+
 	// since js is active, hide the server settings
 	$('#server_type').trigger('change');
 

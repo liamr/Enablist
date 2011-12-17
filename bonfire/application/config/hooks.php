@@ -18,7 +18,7 @@ $hook['post_controller'][] = array(
 								'filepath'	=> 'hooks',
 								'params'	=> ''
 							);
-							
+
 // Maintenance Mode
 $hook['post_controller_constructor'][] = array(
 								'class'		=> 'App_hooks',

@@ -14,7 +14,7 @@
 			<tfoot>
 				<tr>
 					<td colspan="3">
-						Delete selected backup files: 
+						Delete selected backup files:
 						<button type="submit" name="submit" class="button">Delete</button>
 					</td>
 				</tr>
@@ -28,7 +28,7 @@
 					<td>
 						<?php echo $file ?>
 						<div class="hover-item small">
-							<a href="/admin/developer/database/get_backup/<?php echo $file ?>" title="Download this file">Download</a> | 
+							<a href="/admin/developer/database/get_backup/<?php echo $file ?>" title="Download this file">Download</a> |
 							<a href="/admin/developer/database/restore/<?php echo $file ?>" title="Restore this file">Restore</a>
 						</div>
 					</td>
@@ -37,9 +37,9 @@
 			<?php endforeach; ?>
 			</tbody>
 		</table>
-		
+
 		</form>
-	
+
 	<?php else : ?>
 		<div class="notification attention">
 			<p>No previous backups were found.</p>

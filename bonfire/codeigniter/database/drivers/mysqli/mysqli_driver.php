@@ -553,7 +553,7 @@ class CI_DB_mysqli_driver extends CI_DB {
 	{
 		return "INSERT INTO ".$table." (".implode(', ', $keys).") VALUES ".implode(', ', $values);
 	}
-	
+
 	// --------------------------------------------------------------------
 
 	/**

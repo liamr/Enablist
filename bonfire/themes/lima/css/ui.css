@@ -71,9 +71,9 @@ h2.panel-title {
 }
 
 /* !TAB BAR */
-.tab-bar a { 
+.tab-bar a {
 	float: left;
-	display: inline-block; 
+	display: inline-block;
 	height: 100%;
 	font-size: 10px;
 	font-weight: lighter;
