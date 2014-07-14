@@ -12,7 +12,7 @@
 	<br />
 	<p><b>Installed Version:</b> <?php echo $installed_version; ?></p>
 	<p><b>Latest Available Version:</b> <?php echo $latest_version ?></p>
-	
+
 	<br />
 	<?php if ($latest_version > $installed_version) : ?>
 	<div class="notification attention">

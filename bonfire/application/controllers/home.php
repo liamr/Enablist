@@ -3,13 +3,13 @@
 class Home extends Front_Controller {
 
 	//--------------------------------------------------------------------
-	
-	public function index() 
-	{	
+
+	public function index()
+	{
 		Template::render();
 	}
-	
+
 	//--------------------------------------------------------------------
-	
+
 
 }

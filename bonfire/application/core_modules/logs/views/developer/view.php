@@ -15,9 +15,9 @@
 
 	<div id="log">
 		<?php foreach ($log_content as $row) : ?>
-		<?php 
+		<?php
 			$class = '';
-			
+
 			if (strpos($row, 'ERROR') !== false)
 			{
 				$class="error";
@@ -25,7 +25,7 @@
 			if (strpos($row, 'DEBUG') !== false)
 			{
 				$class="attention";
-			}		
+			}
 		?>
 		<div style="border-bottom: 1px solid #999; padding: 5px 18px; color: #222;" <?php echo 'class="'. $class .'"' ?>>
 			<?php echo $row; ?>
@@ -38,11 +38,11 @@
 <script>
 	// Filter Hook
 	$('#filter').change(function(){
-		// Are we filtering at all? 
+		// Are we filtering at all?
 		var filter = $(this).val();
-	
+
 		$('#log div').each(function(){
-		
+
 			switch (filter)
 			{
 				case 'all':

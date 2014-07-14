@@ -1,5 +1,5 @@
 /* RESET */
-html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video 
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video
 {
   margin:0;
   padding:0;
@@ -7,7 +7,7 @@ html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pr
   outline:0;
   vertical-align:baseline;
   background:transparent;
-}                 
+}
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display:block; }
 
 body {
@@ -27,7 +27,7 @@ h2 {
 	font-weight: normal;
 }
 p {	margin-bottom: 1em; }
-p.small { 
+p.small {
 	font-size: 85%;
 	color: #999;
 	font-weight: lighter;
@@ -75,10 +75,10 @@ a:hover { text-decoration: underline; }
 }
 .head h1 {
 	font-size: 2.75em;
-	text-shadow:0 0 4px #844, 0 -3px 4px #FFFF33, 2px -6px 6px #FFDD33, -2px -12px 11px #FF8800, 2px  -18px 18px #FF2200;  
+	text-shadow:0 0 4px #844, 0 -3px 4px #FFFF33, 2px -6px 6px #FFDD33, -2px -12px 11px #FF8800, 2px  -18px 18px #FF2200;
 }
 .main {
-	padding: 20px 40px;	
+	padding: 20px 40px;
 }
 
 /* !NOTIFICATIONS */

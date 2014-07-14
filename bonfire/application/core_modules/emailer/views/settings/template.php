@@ -6,7 +6,7 @@
 		<label>Header</label>
 		<textarea name="header" rows="15"><?php echo htmlspecialchars_decode($this->load->view('email/_header', null, true)) ;?></textarea>
 	</div>
-	
+
 	<div class="fancy-text">
 		<label>Footer</label>
 		<textarea name="footer" rows="15"><?php echo htmlspecialchars_decode($this->load->view('email/_footer', null, true)) ;?></textarea>

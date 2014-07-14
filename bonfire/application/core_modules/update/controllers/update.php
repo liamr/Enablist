@@ -5,49 +5,49 @@ class Update extends Admin_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		
+
 		$this->load->library('GitHub_lib');
 	}
-	
+
 	//--------------------------------------------------------------------
-	
+
 	//--------------------------------------------------------------------
 	// !HMVC METHODS
 	//--------------------------------------------------------------------
-	
+
 	/*
 		update_check()
-		
+
 		Checks with github for any Bonfire updates and notifies the develoepr.
 	*/
-	public function update_check() 
-	{ 
+	public function update_check()
+	{
 		$message = '';
-		
+
 		if (!$this->config->item('updates.do_check'))
 		{
 			return;
 		}
-		
+
 		/*
 			If they're living on the bleeding edge, then we need to find
 			the latest commit reference and compare to what this installed
 			version is at.
 		*/
 		if ($this->config->item('updates.bleeding_edge'))
-		{ 
+		{
 			$commits = $this->github_lib->user_timeline('ci-bonfire', 'Bonfire');
-		
+
 			$last_commit = $commits[0]->id;
-			
+
 			if ($last_commit !== $this->config->item('updates.last_commit'))
 			{
 				$message .= 'A <b>bleeding edge</b> update to Bonfire is available.';
 			}
-			
+
 			unset($commits, $last_commit);
 		}
-		
+
 		/*
 			Also check for major, tagged releases.
 		*/
@@ -61,9 +61,9 @@ class Update extends Admin_Controller {
 				break;
 			}
 		}
-		
+
 		unset($tags);
-		
+
 		/*
 			Show the message(s)
 		*/
@@ -74,7 +74,7 @@ class Update extends Admin_Controller {
 			echo '</div>';
 		}
 	}
-	
+
 	//--------------------------------------------------------------------
 }
 

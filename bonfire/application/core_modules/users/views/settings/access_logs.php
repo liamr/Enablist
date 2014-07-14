@@ -1,5 +1,5 @@
 <h3>Access Logs</h3>
-						
+
 <?php if (isset($access_logs) && is_array($access_logs) && count($access_logs)) : ?>
 
 	<ol>
@@ -9,6 +9,6 @@
 	</ol>
 <?php else : ?>
 	<p>Congratulations!</p>
-	
+
 	<p>All of your users have good memories!</p>
 <?php endif; ?>

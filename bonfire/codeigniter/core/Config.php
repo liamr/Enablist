@@ -84,7 +84,7 @@ class CI_Config {
 		$loaded = FALSE;
 
 		foreach ($this->_config_paths as $path)
-		{			
+		{
 			$file_path = $path.'config/'.ENVIRONMENT.'/'.$file.EXT;
 
 			if (in_array($file_path, $this->is_loaded, TRUE))
@@ -97,13 +97,13 @@ class CI_Config {
 			{
 				log_message('debug', 'Config for '.ENVIRONMENT.' environment is not found. Trying global config.');
 				$file_path = $path.'config/'.$file.EXT;
-				
+
 				if ( ! file_exists($file_path))
 				{
 					continue;
 				}
 			}
-			
+
 			include($file_path);
 
 			if ( ! isset($config) OR ! is_array($config))
@@ -146,7 +146,7 @@ class CI_Config {
 			}
 			show_error('The configuration file '.ENVIRONMENT.'/'.$file.EXT.' and '.$file.EXT.' do not exist.');
 		}
-		
+
 		return TRUE;
 	}
 

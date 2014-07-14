@@ -18,15 +18,15 @@
 		<tfoot>
 			<tr>
 				<td colspan="7">
-					With selected: 
-					
+					With selected:
+
 					<select name="action">
 						<option>Backup</option>
 						<option>Repair</option>
 						<option>Optimize</option>
 						<option>------</option>
 						<option>Drop</option>
-					</select> 
+					</select>
 					&nbsp;&nbsp;
 					<input type="submit" namve="submit" value="Apply" />
 				</td>
@@ -53,7 +53,7 @@
 		<div class="notification info">
 			<p>No tables were found for the current database.</p>
 		</div>
-		
+
 	<?php endif; ?>
 
 <script>

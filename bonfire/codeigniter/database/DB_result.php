@@ -66,7 +66,7 @@ class CI_DB_result {
         {
             return $this->custom_result_object[$class_name];
         }
-        
+
         if ($this->result_id === FALSE OR $this->num_rows() == 0)
         {
             return array();

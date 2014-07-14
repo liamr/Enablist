@@ -4,24 +4,24 @@ class Stats extends Admin_Controller {
 
 	//--------------------------------------------------------------------
 
-	public function __construct() 
+	public function __construct()
 	{
 		parent::__construct();
-		
+
 		$this->auth->restrict('Site.Statistics.View');
-		
+
 		Template::set('toolbar_title', 'Statistics');
 	}
-	
-	//--------------------------------------------------------------------	
 
-	public function index() 
+	//--------------------------------------------------------------------
+
+	public function index()
 	{
 		Template::set_view('admin/stats/index');
 		Template::render();
 	}
-	
+
 	//--------------------------------------------------------------------
-	
+
 
 }

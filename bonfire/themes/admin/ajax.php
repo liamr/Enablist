@@ -1,7 +1,7 @@
 <div class="scrollable" style="margin: 18px 0 36px 0">
-	<?php 
+	<?php
 		echo Template::message();
-		echo Template::yield(); 
+		echo Template::yield();
 	?>
 	<br/>
 </div>

@@ -2,22 +2,22 @@
 
 class Home extends Admin_Controller {
 
-	public function __construct() 
+	public function __construct()
 	{
 		parent::__construct();
-		
+
 		$this->auth->restrict();
-	}	
+	}
 
 	//--------------------------------------------------------------------
-	
-	public function index() 
+
+	public function index()
 	{
 		redirect('admin/content');
 	}
-	
+
 	//--------------------------------------------------------------------
-	
+
 
 }
 

@@ -18,7 +18,7 @@ Our telephone:<br />
 Copyright (C) 2007 *|LIST:COMPANY|* All rights reserved.<br />
 <br />
 <a href="*|FORWARD|*">Forward</a> this email to a friend
-  
+
 
 </span>
 </td>

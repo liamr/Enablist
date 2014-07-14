@@ -48,7 +48,7 @@ class CI_Profiler {
 										'console',
 										'userdata'
 										);
-	protected $_sections = array();		// Stores _compile_x() results 
+	protected $_sections = array();		// Stores _compile_x() results
 
 	// --------------------------------------------------------------------
 
@@ -65,7 +65,7 @@ class CI_Profiler {
 				$this->_compile_{$section} = TRUE;
 			}
 		}
-		
+
 		// Make sure the Console is loaded.
 		if (!class_exists('Console'))
 		{
@@ -112,7 +112,7 @@ class CI_Profiler {
 	{
 		$profile = array();
 		$output = array();
-		
+
 		foreach ($this->CI->benchmark->marker as $key => $val)
 		{
 			// We match the "end" marker so that the list ends
@@ -211,7 +211,7 @@ class CI_Profiler {
 	protected function _compile_get()
 	{
 		$output = array();
-			
+
 		if (count($_GET) == 0)
 		{
 			$output = $this->CI->lang->line('profiler_no_get');
@@ -250,7 +250,7 @@ class CI_Profiler {
 	protected function _compile_post()
 	{
 		$output = array();
-	
+
 		if (count($_POST) == 0)
 		{
 			$output = $this->CI->lang->line('profiler_no_post');
@@ -386,58 +386,58 @@ class CI_Profiler {
 
 	// --------------------------------------------------------------------
 
-	public function _compile_files() 
+	public function _compile_files()
 	{
 		$files = get_included_files();
-		
+
 		sort($files);
-		
+
 		return $files;
 	}
-	
+
 	//--------------------------------------------------------------------
-	
-	public function _compile_console() 
+
+	public function _compile_console()
 	{
 		$logs = Console::get_logs();
-		
-		if ($logs['console']) 
+
+		if ($logs['console'])
 		{
-			foreach ($logs['console'] as $key => $log) 
+			foreach ($logs['console'] as $key => $log)
 			{
-				if ($log['type'] == 'log') 
+				if ($log['type'] == 'log')
 				{
 					$logs['console'][$key]['data'] = print_r($log['data'], true);
 				}
-				elseif ($log['type'] == 'memory') 
+				elseif ($log['type'] == 'memory')
 				{
 					$logs['console'][$key]['data'] = $this->get_file_size($log['data']);
 				}
 			}
 		}
-		
+
 		//echo '<pre>'; print_r($logs); echo '</pre>';
-		
+
 		return $logs;
 	}
-	
+
 	//--------------------------------------------------------------------
-	
+
 	function _compile_userdata()
 	{
 		$output = array();
-	
+
 		$compiled_userdata = $this->CI->session->all_userdata();
-		
+
 		if (count($compiled_userdata))
-		{		
+		{
 			foreach ($compiled_userdata as $key => $val)
 			{
 				if (is_numeric($key))
 				{
 					$output[$key] = "'$val'";
 				}
-				
+
 				if (is_array($val))
 				{
 					$output[$key] = htmlspecialchars(stripslashes(print_r($val, true)));
@@ -448,12 +448,12 @@ class CI_Profiler {
 				}
 			}
 		}
-		
+
 		return $output;
 	}
-	
+
 	//--------------------------------------------------------------------
-	
+
 	public static function get_file_size($size, $retstring = null) {
         // adapted from code at http://aidanlister.com/repos/v/function.size_readable.php
 	    $sizes = array('bytes', 'kB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB');
@@ -469,7 +469,7 @@ class CI_Profiler {
 	       if ($sizestring == $sizes[0]) { $retstring = '%01d %s'; } // Bytes aren't normally fractional
 	       return sprintf($retstring, $size, $sizestring);
 	}
-	
+
 	//--------------------------------------------------------------------
 
 	/**
@@ -480,7 +480,7 @@ class CI_Profiler {
 	public function run()
 	{
 		$this->CI->load->helper('language');
-	
+
 		$fields_displayed = 0;
 
 		foreach ($this->_available_sections as $section)
@@ -489,7 +489,7 @@ class CI_Profiler {
 			{
 				$func = "_compile_{$section}";
 				$this->_sections[$section] = $this->{$func}();
-				$fields_displayed++;				
+				$fields_displayed++;
 			}
 		}
 
@@ -506,14 +506,14 @@ class CI_Profiler {
 			//echo $this->CI->load->_ci_view_path;
 
 			$output = $this->CI->load->_ci_load(array(
-					'_ci_view' 		=> 'profiler_template', 
-					'_ci_vars' 		=> array('sections' => $this->_sections), 
+					'_ci_view' 		=> 'profiler_template',
+					'_ci_vars' 		=> array('sections' => $this->_sections),
 					'_ci_return'	=> true,
 			));
-		
+
 			$this->CI->load->_ci_view_path = $orig_view_path;
 		}
-		
+
 		return $output;
 	}
 

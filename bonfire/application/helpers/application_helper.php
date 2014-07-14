@@ -19,10 +19,10 @@
 	Creates an image link based on Gravatar for the specified email address.
 	It will default to the site's generic image if none is found for
 	the user.
-	
+
 	Note that if gravatar does not have an image that matches the criteria,
 	it will return a link to an image under *your_theme/images/user.png*.
-	
+
 	Parameters:
 		$email	- The email address to check for.
 		$size	- The width (and height) of the resulting image to grab.
@@ -30,34 +30,34 @@
 		$title	- The title text to be put in the link tag.
 		$class	- Any class(es) that should be assigned to the link tag.
 		$id		- The id (if any) that shoudl put in the link tag.
-		
+
 	Return:
 		The resulting image tag.
  */
-function gravatar_link($email=null, $size=48, $alt='', $title='', $class='', $id='') 
+function gravatar_link($email=null, $size=48, $alt='', $title='', $class='', $id='')
 {
 	// Set our default image based on required size.
 	$default_image = Template::theme_url('images/user.png');
-	
+
 	// Set our minimum site rating to PG
 	$rating = 'PG';
-	
-	// Border color 
+
+	// Border color
 	$border = 'd6d6d6';
-	
+
 	// URL for Gravatar
 	$gravatarURL = "http://www.gravatar.com/avatar.php?gravatar_id=%s&default=%s&size=%s&border=%s&rating=%s";
-	
+
 	$avatarURL = sprintf
 	(
-		$gravatarURL, 
-		md5($email), 
+		$gravatarURL,
+		md5($email),
 		$default_image,
 		$size,
 		$border,
 		$rating
 	);
-	
+
 	return '<img src="'. $avatarURL .'" width="'.	$size .'" height="'. $size . '" alt="'. $alt .'" title="'. $title .'" class="'. $class .'" id="'. $id .'" />';
 }
 
@@ -70,7 +70,7 @@ function gravatar_link($email=null, $size=48, $alt='', $title='', $class='', $id
 /*
 	Function: module_folders();
 
-	Returns an array of the folders that modules are allowed to be stored in. 
+	Returns an array of the folders that modules are allowed to be stored in.
 	These are set in *bonfire/application/third_party/MX/Modules.php*.
 */
 function module_folders()
@@ -82,7 +82,7 @@ function module_folders()
 
 /*
 	Function: module_list()
- 
+
 	Returns a list of all modules in the system.
 */
 function module_list($exclude_core=false)
@@ -103,10 +103,10 @@ function module_list($exclude_core=false)
 		{
 			continue;
 		}
-		
+
 		$map = array_merge($map, directory_map($folder, 1));
 	}
-	
+
 	return $map;
 }
 
@@ -114,20 +114,20 @@ function module_list($exclude_core=false)
 	Function: module_config()
 
 	Returns config for a module.
-	
+
 	Parameters:
 	$module		- The name of module to look in.
-	
-	Return: 
+
+	Return:
 		array
  */
 
 function module_config($module) {
-    
+
     $config_param = array();
-    
+
     $config_file = FCPATH .'bonfire/modules/' . $module . '/config/config.php';
-    
+
     if (file_exists($config_file)) {
 
 		include($config_file);
@@ -138,7 +138,7 @@ function module_config($module) {
 			$config_param =$config;
 
 		}
-		
+
 	} else {
 	    $config_param = array($config_file);
 	}
@@ -148,11 +148,11 @@ function module_config($module) {
 }
 
 function module_widgets() {
-    
+
     $config_param =array();
-    
+
     foreach (module_list() as $module) {
-        
+
         $c = module_config($module);
 
 		if (isset($c['module_config'])) {
@@ -160,9 +160,9 @@ function module_widgets() {
 			$config_param[] = modules::run($c['module_config']['dashboard_widget']);
 
 		} else {
-		    
+
 		    //$config_param[] = $c;
-		    
+
 		}
 
 	}
@@ -177,12 +177,12 @@ function module_widgets() {
 	Function: module_controller_exists()
 
 	Determines whether a controller exists for a module.
-	
+
 	Parameters:
 	$controller	- The name of the controller to looke for (without the .php)
 	$module		- The name of module to look in.
-	
-	Return: 
+
+	Return:
 		true/false
  */
 function module_controller_exists($controller=null, $module=null)
@@ -191,7 +191,7 @@ function module_controller_exists($controller=null, $module=null)
 	{
 		return false;
 	}
-	
+
 	// Look in all module paths
 	foreach (module_folders() as $folder)
 	{
@@ -200,7 +200,7 @@ function module_controller_exists($controller=null, $module=null)
 			return true;
 		}
 	}
-	
+
 	return false;
 }
 
@@ -208,18 +208,18 @@ function module_controller_exists($controller=null, $module=null)
 
 /*
 	Function: module_files()
-	
+
 	Returns an associative array of files within one or more modules.
-	
+
 	Parameters:
 		$module_name	- If not NULL, will return only files from that module.
 		$module_folder	- if not NULL, will return only files within that folder of each module (ie 'views')
 		$exclude_core	- Whether we should ignore all core modules.
-		
+
 	Return:
 		An associative array, like: array('module_name' => array('folder' => array('file1', 'file2')))
 */
-function module_files($module_name=null, $module_folder=null, $exclude_core=false) 
+function module_files($module_name=null, $module_folder=null, $exclude_core=false)
 {
 	if (!function_exists('directory_map'))
 	{
@@ -236,15 +236,15 @@ function module_files($module_name=null, $module_folder=null, $exclude_core=fals
 		{
 			continue;
 		}
-		
+
 		if (!empty($module_name) && is_dir($path . $module_name))
 		{
 			$path = $path . $module_name;
 		}
-		
+
 		$modules = directory_map($path);
-		
-		// If the element is not an array, we know that it's a file, 
+
+		// If the element is not an array, we know that it's a file,
 		// so we ignore it, otherwise it is assumbed to be a module.
 		if (!is_array($modules) || !count($modules))
 		{
@@ -270,7 +270,7 @@ function module_files($module_name=null, $module_folder=null, $exclude_core=fals
 			}
 		}
 	}
-	
+
 	return $files;
 }
 
@@ -285,7 +285,7 @@ function module_icon($module=null)
 	{
 		return '';
 	}
-	
+
 	// Find our module location
 	foreach (module_folders() as $folder)
 	{
@@ -295,6 +295,6 @@ function module_icon($module=null)
 			return base_url() . str_replace(FCPATH, '', $icon);
 		}
 	}
-	
+
 	return '';
 }
